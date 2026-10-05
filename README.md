@@ -8,9 +8,12 @@ Gromozeka is a local-first knowledge synthesis tool that turns books, articles, 
 
 ```mermaid
 flowchart LR
-    sources[/"Books, articles<br/>and documentation"/] --> processing("AI-assisted processing<br/>Extract and compare")
-    processing --> synthesis("Knowledge synthesis<br/>Merge and preserve differences")
-    synthesis --> output[/"Unified document<br/>with source references"/]
+    sources@{ shape: docs, label: "Books, articles<br/>and documentation" }
+    processing("AI-assisted processing<br/>Extract and compare")
+    synthesis{{"Knowledge synthesis<br/>Merge and preserve<br/>differences"}}
+    output@{ shape: doc, label: "Unified document<br/>with source references" }
+
+    sources --> processing --> synthesis --> output
     output -. "Traceable to originals" .-> sources
 
     classDef source fill:#eff6ff,stroke:#3b82f6,color:#1e3a8a
